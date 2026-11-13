@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/quests/story_quests/forja_jenny/episodios/carrera_vacio.gd" id="run"]
+[ext_resource type="Script" path="res://scenes/game_elements/props/background_music/components/background_music.gd" id="music"]
+[ext_resource type="AudioStream" path="res://scenes/quests/story_quests/forja_jenny/episodios/musica_encuentro.tres" id="score"]
+
+[node name="CarreraDelVacio" type="Node2D"]
+texture_filter = 1
+script = ExtResource("run")
+
+[node name="BackgroundMusic" type="Node" parent="."]
+script = ExtResource("music")
+stream = ExtResource("score")
+clip = &"calma"

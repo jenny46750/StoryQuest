@@ -86,7 +86,7 @@ func _physics_process(dt: float) -> void:
 	if outcome == "victoria":
 		if Input.is_action_just_pressed("interact"):
 			set_physics_process(false)
-			var next := "salida.tscn" if rumbo_al_santuario else "forja.tscn"
+			var next := "episodios/carrera_vacio.tscn" if rumbo_al_santuario else "forja.tscn"
 			get_tree().change_scene_to_file.call_deferred("res://scenes/quests/story_quests/forja_jenny/" + next)
 		return
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
@@ -158,5 +158,5 @@ func _draw() -> void:
 		draw_rect(Rect2(260,275,760,150),Color("#13212bf7"))
 		var won := outcome=="victoria"
 		label(Vector2(310,338),"¡Escapaste de la serpiente!" if won else "La serpiente te atrapó",36,Color("#ffe09c"))
-		label(Vector2(310,385),("Espacio para subir al Santuario." if rumbo_al_santuario else "Espacio para regresar a la Forja.") if won else "Regresas al Vestíbulo…",22,Color("#e0efea"))
+		label(Vector2(310,385),("Espacio para cruzar el vacío hasta el Santuario." if rumbo_al_santuario else "Espacio para regresar a la Forja.") if won else "Regresas al Vestíbulo…",22,Color("#e0efea"))
 
