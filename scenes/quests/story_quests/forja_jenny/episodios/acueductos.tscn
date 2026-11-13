@@ -1,5 +1,7 @@
 [gd_scene format=4]
 
+[ext_resource type="SpriteFrames" path="res://scenes/quests/story_quests/forja_jenny/episodios/arte/escorpion.tres" id="escorpion"]
+[ext_resource type="AudioStream" path="res://scenes/quests/story_quests/forja_jenny/episodios/musica_encuentro.tres" id="score"]
 [ext_resource type="Script" uid="uid://pk3ucq7e2eah" path="res://scenes/game_logic/player_mode.gd" id="1_dc7xv"]
 [ext_resource type="Script" uid="uid://x1mxt6bmei2o" path="res://scenes/ui_elements/cinematic/cinematic.gd" id="1_n2hj7"]
 [ext_resource type="Resource" path="res://scenes/quests/story_quests/forja_jenny/episodios/acueductos.dialogue" id="2_3qn31"]
@@ -29,23 +31,6 @@ script = ExtResource("11_4lmqk")
 type = 1
 metadata/_custom_type_script = "uid://bgmwplmj3bfls"
 
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_niajk"]
-clip_count = 2
-clip_0/name = &"combat"
-clip_0/stream = ExtResource("17_ku1na")
-clip_0/auto_advance = 0
-clip_1/name = &"cozy"
-clip_1/stream = ExtResource("18_bxavx")
-clip_1/auto_advance = 0
-_transitions = {
-Vector2i(0, 1): {
-"fade_beats": 2.0,
-"fade_mode": 2,
-"from_time": 1,
-"to_time": 1
-}
-}
-
 [node name="NoEditCombat" type="Node2D" unique_id=1610054737]
 
 [node name="PlayerMode" type="Node" parent="." unique_id=969358735]
@@ -60,7 +45,7 @@ metadata/_custom_type_script = "uid://x1mxt6bmei2o"
 
 [node name="FillGameLogic" type="Node" parent="." unique_id=1828019770]
 script = ExtResource("5_4win1")
-barrels_to_win = 2
+barrels_to_win = 3
 metadata/_custom_type_script = "uid://cp54mgi54nywo"
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=738016104]
@@ -87,6 +72,7 @@ position = Vector2(348, 335)
 
 [node name="ThrowingNPC" parent="OnTheGround" unique_id=2065424633 instance=ExtResource("11_64btt")]
 position = Vector2(857, 300)
+sprite_frames = ExtResource("escorpion")
 
 [node name="Target" parent="OnTheGround" unique_id=1718603548 instance=ExtResource("12_2eyq6")]
 needed_amount = 1
@@ -158,14 +144,19 @@ editor_draw_limits = true
 
 [node name="BackgroundMusic" type="Node" parent="." unique_id=596208504]
 script = ExtResource("16_t2kes")
-stream = SubResource("AudioStreamInteractive_niajk")
+stream = ExtResource("score")
+clip = &"calma"
 metadata/_custom_type_script = "uid://c8405c212rbn6"
 
 [node name="ClipSwitcher" type="Node" parent="BackgroundMusic" unique_id=2070894837]
 script = ExtResource("18_ku1na")
-clip = &"cozy"
+clip = &"calma"
 metadata/_custom_type_script = "uid://c2lx7gvkonxaa"
 
+
+[node name="MusicaBatalla" type="Node" parent="BackgroundMusic"]
+script = ExtResource("18_ku1na")
+clip = &"batalla"
 
 [node name="Objetivo" type="Label" parent="ScreenOverlay"]
 offset_left = 22.0
@@ -173,7 +164,7 @@ offset_top = 74.0
 mouse_filter = 2
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 22
-text = "III   /   Acueductos Hundidos\nRepele las gotas hacia dos núcleos del mismo color. Evita las corrientes."
+text = "III   /   Acueductos Hundidos\nRepele las gotas hacia tres núcleos de su color. Evita las corrientes."
 
 [node name="Peligros" type="Node2D" parent="."]
 z_index = 2
@@ -185,3 +176,5 @@ color_activo = Color(0.23, 0.82, 0.95, 1)
 [connection signal="cinematic_finished" from="Cinematic" to="FillGameLogic" method="start"]
 [connection signal="goal_reached" from="FillGameLogic" to="OnTheGround/CollectibleItem" method="reveal"]
 [connection signal="goal_reached" from="FillGameLogic" to="BackgroundMusic/ClipSwitcher" method="switch"]
+
+[connection signal="cinematic_finished" from="Cinematic" to="BackgroundMusic/MusicaBatalla" method="switch"]

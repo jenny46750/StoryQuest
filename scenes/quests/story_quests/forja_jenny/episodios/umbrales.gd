@@ -3,6 +3,7 @@ extends Node2D
 
 const NEXT := "res://scenes/quests/story_quests/forja_jenny/episodios/jardines.tscn"
 const HERO := preload("res://scenes/quests/story_quests/forja_jenny/episodios/arte/walk.png")
+const BAT := preload("res://scenes/quests/story_quests/forja_jenny/episodios/arte/murcielago.png")
 const GATES := [378.0, 645.0, 928.0]
 const RUNES := [255.0, 792.0]
 var x := 108.0
@@ -10,6 +11,10 @@ var elapsed := 0.0
 var activated := [false, false]
 var message := "Activa las dos losas de luz y cruza las tres puertas."
 var cooldown := 0.0
+
+func bat_position() -> Vector2:
+	var angle := elapsed * 1.8
+	return Vector2(520 + sin(angle) * 62, 320 + cos(angle) * 90)
 
 func phase(index: int) -> float:
 	return fmod(elapsed + index * 0.78, 3.8)
@@ -19,6 +24,15 @@ func _physics_process(delta: float) -> void:
 	cooldown = maxf(0, cooldown - delta)
 	var step := Input.get_axis("move_left", "move_right") * 245 * delta
 	x = clampf(x + step, 88, 1180)
+	var bat := bat_position()
+	var threatened := absf(x - bat.x) < 130
+	var cue := &"batalla" if threatened else &"calma"
+	if $BackgroundMusic.clip != cue:
+		$BackgroundMusic.set_clip(cue)
+	if cooldown <= 0 and absf(x - bat.x) < 34 and bat.y > 372:
+		x = 414
+		cooldown = 1.2
+		message = "El murciélago baja en picado. Cruza cuando vuelva a subir."
 	for i in GATES.size():
 		if absf(GATES[i] - x) < 24 and phase(i) < 1.45 and cooldown <= 0:
 			x = 108
@@ -67,6 +81,8 @@ func _draw() -> void:
 		if value<1.45:
 			for j in 5:
 				draw_line(Vector2(gx-24+j*12,353),Vector2(gx-24+j*12,449),ink,3)
+	var bat := bat_position()
+	draw_texture_rect_region(BAT,Rect2(bat - Vector2(48,30),Vector2(96,96)),Rect2(96 * (int(elapsed * 8) % 4),0,96,96))
 	label(Vector2(1064,397),"JARDINES →",19,Color("#9ef3dc"))
 	draw_texture_rect_region(HERO,Rect2(x-64,344,128,128),Rect2(192 * (int(elapsed * 8) % 4),0,192,192))
 	label(Vector2(76,622),"← →   Caminar       ESPACIO   Activar losa       Verde: pasa · Rojo: espera",23,Color("#e7dfc6"))

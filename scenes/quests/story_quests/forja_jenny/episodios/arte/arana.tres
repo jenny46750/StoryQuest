@@ -1,0 +1,24 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://scenes/quests/story_quests/forja_jenny/episodios/arte/arana.png" id="sheet"]
+
+[sub_resource type="AtlasTexture" id="pose0"]
+atlas = ExtResource("sheet")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="pose1"]
+atlas = ExtResource("sheet")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="pose2"]
+atlas = ExtResource("sheet")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="pose3"]
+atlas = ExtResource("sheet")
+region = Rect2(288, 0, 96, 96)
+
+[resource]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}, {"duration": 1.0, "texture": SubResource("pose2")}, {"duration": 1.0, "texture": SubResource("pose3")}, {"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}, {"duration": 1.0, "texture": SubResource("pose2")}, {"duration": 1.0, "texture": SubResource("pose3")}, {"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}, {"duration": 1.0, "texture": SubResource("pose2")}], "loop": true, "name": &"idle", "speed": 6.666667},
+{"frames": [{"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}, {"duration": 1.0, "texture": SubResource("pose2")}, {"duration": 1.0, "texture": SubResource("pose3")}, {"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}], "loop": true, "name": &"walk", "speed": 6.666667},
+{"frames": [{"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}, {"duration": 1.0, "texture": SubResource("pose2")}, {"duration": 1.0, "texture": SubResource("pose3")}, {"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}], "loop": true, "name": &"alerted", "speed": 6.666667}]

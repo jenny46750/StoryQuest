@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MPL-2.0
 ~ start
 Mara: David, tengo una bota bajo el agua y la otra encima del transmisor. Elige bien dónde pisas.
-David: Veo dos depósitos y proyectiles de colores. ¿Puedo invertir la presión?
-Mara: Sí. Desvía cada disparo a un núcleo de su color. Cruza cuando bajen los chorros.
+David: Ese escorpión lanza proyectiles de colores. ¿Puedo invertir la presión?
+Mara: Sí. Llena tres núcleos. Cada disparo debe volver a uno de su color. Cruza cuando bajen los chorros.
 => END
 
 ~ well_done

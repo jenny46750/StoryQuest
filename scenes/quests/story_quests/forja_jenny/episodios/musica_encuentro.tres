@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamInteractive" format=3]
+[ext_resource type="AudioStream" path="res://assets/first_party/music/Threadbare_Bed.ogg" id="calma"]
+[ext_resource type="AudioStream" path="res://assets/first_party/music/Threadbare_Combat.ogg" id="batalla"]
+[resource]
+clip_count = 2
+initial_clip = 0
+clip_0/name = &"calma"
+clip_0/stream = ExtResource("calma")
+clip_1/name = &"batalla"
+clip_1/stream = ExtResource("batalla")
+_transitions = {Vector2i(-1, -1): {"from_time": 0, "to_time": 0, "fade_mode": 3, "fade_beats": 0.25}}

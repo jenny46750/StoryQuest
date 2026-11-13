@@ -104,6 +104,10 @@ func _physics_process(dt: float) -> void:
 		if absf(dest.x - head.x) > 0.1:
 			facing_left = dest.x < head.x
 		head = head.move_toward(dest, (76.0 + 8.0 * (2 - remaining.size())) * dt)
+	var near_snake := head.distance_to(hero) < (220.0 if $BackgroundMusic.clip == &"batalla" else 160.0)
+	var cue := &"batalla" if near_snake else &"calma"
+	if $BackgroundMusic.clip != cue:
+		$BackgroundMusic.set_clip(cue)
 	if head.distance_to(hero) < 23:
 		outcome = "captura"
 	else:
@@ -112,6 +116,7 @@ func _physics_process(dt: float) -> void:
 				remaining.erase(gem)
 		if remaining.is_empty() and hero.distance_to(center(EXIT)) < 24:
 			outcome = "victoria"
+			$BackgroundMusic.set_clip(&"calma")
 	queue_redraw()
 
 func label(at: Vector2, value: String, size_: int, color: Color) -> void:

@@ -1,5 +1,7 @@
 [gd_scene format=4]
 
+[ext_resource type="SpriteFrames" path="res://scenes/quests/story_quests/forja_jenny/episodios/arte/arana.tres" id="arana"]
+[ext_resource type="Script" path="res://scenes/quests/story_quests/forja_jenny/episodios/musica_jardines.gd" id="guard_music"]
 [ext_resource type="Script" uid="uid://dnp0tjloec2d7" path="res://scenes/game_logic/stealth_game_logic.gd" id="1_eujsg"]
 [ext_resource type="TileSet" uid="uid://b8qnr0owsbhhn" path="res://tiles/exterior_floors.tres" id="2_dh0i2"]
 [ext_resource type="PackedScene" uid="uid://iu2q66clupc6" path="res://scenes/game_elements/characters/player/player.tscn" id="3_bvm3m"]
@@ -15,7 +17,7 @@
 [ext_resource type="Script" uid="uid://x1mxt6bmei2o" path="res://scenes/ui_elements/cinematic/cinematic.gd" id="12_bs0vj"]
 [ext_resource type="Resource" path="res://scenes/quests/story_quests/forja_jenny/episodios/jardines.dialogue" id="13_y0fxw"]
 [ext_resource type="Script" uid="uid://c8405c212rbn6" path="res://scenes/game_elements/props/background_music/components/background_music.gd" id="15_axd4p"]
-[ext_resource type="AudioStream" uid="uid://dk10o5q87xbct" path="res://assets/first_party/music/Threadbare Loop_Main_Bridge_01.ogg" id="16_1foft"]
+[ext_resource type="AudioStream" path="res://scenes/quests/story_quests/forja_jenny/episodios/musica_encuentro.tres" id="16_1foft"]
 
 [ext_resource type="Script" path="res://scenes/quests/story_quests/forja_jenny/episodios/peligros.gd" id="peligro"]
 
@@ -97,6 +99,7 @@ scale = Vector2(0.107143, 0.352768)
 curve = SubResource("Curve2D_vnsq3")
 
 [node name="Guard2-RunningInCircles" parent="OnTheGround/EnemyGuards" unique_id=478814464 node_paths=PackedStringArray("patrol_path") instance=ExtResource("6_fg25g")]
+sprite_frames = ExtResource("arana")
 position = Vector2(2435, 382)
 patrol_path = NodePath("../Guard2-RunningPath")
 wait_time = 1.15
@@ -137,6 +140,7 @@ metadata/_custom_type_script = "uid://x1mxt6bmei2o"
 [node name="BackgroundMusic" type="Node" parent="." unique_id=213555345]
 script = ExtResource("15_axd4p")
 stream = ExtResource("16_1foft")
+clip = &"calma"
 metadata/_custom_type_script = "uid://c8405c212rbn6"
 
 [node name="Objetivo" type="Label" parent="ScreenOverlay"]
@@ -154,3 +158,6 @@ centros = PackedVector2Array(650, 460, 1490, 450, 2240, 860)
 mensaje = "ESPINAS"
 color_activo = Color(0.89, 0.43, 0.65, 1)
 
+
+[node name="MusicaVigilancia" type="Node" parent="."]
+script = ExtResource("guard_music")
