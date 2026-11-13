@@ -19,6 +19,7 @@
 
 [ext_resource type="Script" path="res://scenes/quests/story_quests/forja_jenny/episodios/peligros.gd" id="peligro"]
 
+[ext_resource type="SpriteFrames" path="res://scenes/quests/story_quests/forja_jenny/episodios/arte/medusa.tres" id="medusa"]
 [ext_resource type="SpriteFrames" path="res://scenes/quests/story_quests/forja_jenny/episodios/arte/liceo.tres" id="liceo"]
 
 [sub_resource type="Curve2D" id="Curve2D_vnsq3"]
@@ -84,6 +85,7 @@ editor_draw_limits = true
 y_sort_enabled = true
 
 [node name="Guard1-GoingBackAndForth" parent="OnTheGround/EnemyGuards" unique_id=1357389645 node_paths=PackedStringArray("patrol_path") instance=ExtResource("6_fg25g")]
+sprite_frames = ExtResource("medusa")
 position = Vector2(525.9997, 470.00003)
 patrol_path = NodePath("../Guard1-PatrolPath")
 move_speed = 200.0
