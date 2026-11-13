@@ -91,6 +91,7 @@ sprite_frames = ExtResource("medusa")
 position = Vector2(525.9997, 470.00003)
 patrol_path = NodePath("../Guard1-PatrolPath")
 move_speed = 200.0
+detection_area_scale = 1.5
 
 [node name="Guard1-PatrolPath" type="Path2D" parent="OnTheGround/EnemyGuards" unique_id=335964649]
 top_level = true
