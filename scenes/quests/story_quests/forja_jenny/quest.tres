@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="StoryQuest" format=3]
+
+[ext_resource type="Script" uid="uid://dnso5a8iq3s1w" path="res://scenes/menus/storybook/components/story_quest.gd" id="1_y02x1"]
+[ext_resource type="SpriteFrames" path="res://scenes/quests/story_quests/forja_jenny/episodios/arte/liceo.tres" id="2_56763"]
+
+[resource]
+script = ExtResource("1_y02x1")
+threads_to_collect = 3
+language = "es"
+title = "David y la aguja del estuario · Episodios I–V"
+description = "Explora un observatorio inundado, reconstruye su aguja de mareas y rescata a Mara antes de que se anegue el pozo."
+first_scene = "res://scenes/quests/story_quests/forja_jenny/story escena intro.tscn"
+sprite_frames = ExtResource("2_56763")
+animation_name = &"idle"
+metadata/_custom_type_script = "uid://dts1hwdy3phin"
+
+

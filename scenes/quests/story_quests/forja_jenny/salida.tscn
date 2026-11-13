@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/quests/story_quests/forja_jenny/episodios/santuario/cima.gd" id="1"]
+
+[node name="SantuarioDeLaCima" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1")
+
+[node name="Musica" type="AudioStreamPlayer" parent="."]
+volume_db = -16.0
+
+[node name="VozDelOrbe" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0

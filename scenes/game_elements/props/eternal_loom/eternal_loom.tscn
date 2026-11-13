@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://712saqgof3kf"]
+
+[ext_resource type="Script" uid="uid://dj5shb75ckk2a" path="res://scenes/game_elements/props/eternal_loom/components/eternal_loom.gd" id="1_0f752"]
+[ext_resource type="Texture2D" uid="uid://cj62bpasgf643" path="res://scenes/game_elements/props/eternal_loom/components/eternal_loom_blue.png" id="2_dj2yp"]
+[ext_resource type="Script" uid="uid://du8wfijr35r35" path="res://scenes/game_elements/props/interact_area/interact_area.gd" id="3_mjlja"]
+[ext_resource type="Script" uid="uid://edcifob4jc4s" path="res://scenes/game_logic/talk_behavior.gd" id="4_eq7jh"]
+[ext_resource type="Resource" uid="uid://yafw7bf362gh" path="res://scenes/game_elements/props/eternal_loom/components/eternal_loom_interaction.dialogue" id="5_k2bt4"]
+[ext_resource type="Script" uid="uid://byu17bpk0v5n7" path="res://scenes/game_elements/props/eternal_loom/components/loom_offering_animation.gd" id="6_rle0d"]
+[ext_resource type="AudioStream" uid="uid://bg8u4en3hlo6w" path="res://assets/third_party/sounds/eternal_loom/EternalLoomShort.ogg" id="7_12bvc"]
+[ext_resource type="Texture2D" uid="uid://b5ooaiyxdrp6a" path="res://scenes/game_elements/components/light_texture_256x256.tres" id="9_mjlja"]
+[ext_resource type="Script" uid="uid://bk52qjv58locq" path="res://scenes/game_logic/light2d_behaviors/artificial_light_behavior.gd" id="10_k2bt4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj2yp"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(0, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12bvc"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(320, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq7jh"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(640, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfqem"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(960, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjlja"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(1280, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2bt4"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(1600, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rle0d"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(1920, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3ofd"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(2240, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ydsa"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(2560, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc4ix"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(2880, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuclr"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(3200, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6ohj"]
+atlas = ExtResource("2_dj2yp")
+region = Rect2(3520, 0, 320, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jart"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj2yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12bvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq7jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfqem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjlja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2bt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rle0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3ofd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ydsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc4ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuclr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6ohj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_uhynt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uojly"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1), Color(0, 1, 0, 1), Color(1, 0, 0, 1), Color(1, 0, 1, 1), Color(1, 0.564706, 0, 1), Color(0.290196, 1, 0.286275, 1), Color(1, 0.207843, 0.52549, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojp30"]
+_data = {
+&"RESET": SubResource("Animation_uhynt"),
+&"idle": SubResource("Animation_uojly")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uojly"]
+size = Vector2(393, 260)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhynt"]
+size = Vector2(50, 50)
+
+[sub_resource type="Curve2D" id="Curve2D_f3ofd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -80, 0, -80, 0, 80, -80, 0, 0, 0, 0, 0, 0, 80, 0, 80, 0, -80, 80, 0, 0, 0, 0, 0, 0, -80)
+}
+point_count = 5
+
+[node name="EternalLoom" type="Node2D" unique_id=630179356]
+script = ExtResource("1_0f752")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1111466197]
+scale = Vector2(1.5, 1.43)
+sprite_frames = SubResource("SpriteFrames_1jart")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1689473314]
+libraries/ = SubResource("AnimationLibrary_ojp30")
+speed_scale = 0.3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=674824664]
+visible = false
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=699367124]
+position = Vector2(-1.5, 32)
+shape = SubResource("RectangleShape2D_uojly")
+debug_color = Color(0, 0.588235, 0.698039, 0.419608)
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1735004807 node_paths=PackedStringArray("marker")]
+unique_name_in_owner = true
+position = Vector2(0, 55)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_mjlja")
+marker = NodePath("Marker")
+action_text = "Use Eternal Loom"
+metadata/_custom_type_script = "uid://du8wfijr35r35"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1537085446]
+position = Vector2(0, 120)
+shape = SubResource("RectangleShape2D_uhynt")
+debug_color = Color(0.6, 0.545, 0, 0.42)
+
+[node name="Marker" type="Marker2D" parent="InteractArea" unique_id=556753843]
+position = Vector2(0, -152)
+
+[node name="TalkBehavior" type="Node" parent="." unique_id=562216088 node_paths=PackedStringArray("interact_area")]
+unique_name_in_owner = true
+script = ExtResource("4_eq7jh")
+dialogue = ExtResource("5_k2bt4")
+interact_area = NodePath("../InteractArea")
+metadata/_custom_type_script = "uid://edcifob4jc4s"
+
+[node name="LoomOfferingAnimation" type="Node2D" parent="." unique_id=515569025]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, 135)
+script = ExtResource("6_rle0d")
+
+[node name="AnimationPath" type="Path2D" parent="LoomOfferingAnimation" unique_id=1718786189]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_f3ofd")
+
+[node name="LoomOfferingSound" type="AudioStreamPlayer2D" parent="LoomOfferingAnimation" unique_id=1851096463]
+stream = ExtResource("7_12bvc")
+bus = &"SFX"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=853151346 groups=["night-lights"]]
+visibility_layer = 2
+position = Vector2(0, 39)
+scale = Vector2(2.9765627, 1.765625)
+enabled = false
+color = Color(1, 1, 0, 1)
+energy = 0.5
+texture = ExtResource("9_mjlja")
+
+[node name="ArtificialLightBehavior" type="Node" parent="PointLight2D" unique_id=326293187 node_paths=PackedStringArray("light")]
+script = ExtResource("10_k2bt4")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://bk52qjv58locq"

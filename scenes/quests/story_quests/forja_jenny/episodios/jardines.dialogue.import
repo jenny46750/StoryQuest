@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cwn3qkemn2yl3"
+path="res://.godot/imported/jardines.dialogue-41e8c15d05f14050c63625c18d3a54da.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/forja_jenny/episodios/jardines.dialogue"
+dest_files=["res://.godot/imported/jardines.dialogue-41e8c15d05f14050c63625c18d3a54da.tres"]
+
+[params]
+
+defaults=true

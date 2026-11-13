@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://ft2waq6vjbh"
+path="res://.godot/imported/acueductos.dialogue-47a2f63e520dea730b9d0598dc96178b.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/forja_jenny/episodios/acueductos.dialogue"
+dest_files=["res://.godot/imported/acueductos.dialogue-47a2f63e520dea730b9d0598dc96178b.tres"]
+
+[params]
+
+defaults=true

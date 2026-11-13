@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://c3pp1fl7lk63p"
+path="res://.godot/imported/primer_fragmento.dialogue-f0937b9f04e8895a96841f7145945e88.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/forja_jenny/episodios/primer_fragmento.dialogue"
+dest_files=["res://.godot/imported/primer_fragmento.dialogue-f0937b9f04e8895a96841f7145945e88.tres"]
+
+[params]
+
+defaults=true

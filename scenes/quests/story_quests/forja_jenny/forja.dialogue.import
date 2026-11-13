@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dnpe74wolcl8f"
+path="res://.godot/imported/forja.dialogue-373da69f41f2919090ff0811a5d4ceba.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/forja_jenny/forja.dialogue"
+dest_files=["res://.godot/imported/forja.dialogue-373da69f41f2919090ff0811a5d4ceba.tres"]
+
+[params]
+
+defaults=true

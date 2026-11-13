@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: MPL-2.0
+~ start
+Remachador: Tu abuelo salvó el puerto, muchacho. Luego desmontó el mando para que nadie inundara el valle por error.
+David: Hay gente en el pozo. Enséñame a montarlo otra vez.
+Remachador: Escucha los dos pedestales. Repite sus notas en las runas para soltar la punta. La víbora duerme bajo la marca LUNA.
+=> END
+
+~ well_done
+Remachador: Aquí está la punta. El paso a la cima atraviesa la cripta. Dos cristales alimentan su puerta.
+David: Si oyes tres golpes por el tubo, tira del cable. Será Mara con toda su gente.
+=> END

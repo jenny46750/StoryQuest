@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cqthcarywwflc"
+path="res://.godot/imported/farol.dialogue-04ddd1f7f192ca3b0c25be67bef48025.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/forja_jenny/episodios/farol.dialogue"
+dest_files=["res://.godot/imported/farol.dialogue-04ddd1f7f192ca3b0c25be67bef48025.tres"]
+
+[params]
+
+defaults=true
