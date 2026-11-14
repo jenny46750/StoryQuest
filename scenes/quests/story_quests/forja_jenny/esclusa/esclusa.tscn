@@ -8,10 +8,26 @@
 
 [ext_resource type="PackedScene" path="res://scenes/game_elements/characters/npcs/talker/talker.tscn" id="talker"]
 [ext_resource type="Resource" path="res://scenes/quests/story_quests/forja_jenny/esclusa/ines.dialogue" id="voz"]
-[ext_resource type="Texture2D" path="res://scenes/quests/story_quests/forja_jenny/esclusa/ines.svg" id="arte"]
+[ext_resource type="Texture2D" path="res://scenes/quests/story_quests/forja_jenny/esclusa/ines.png" id="arte"]
+
+[sub_resource type="AtlasTexture" id="ines0"]
+atlas = ExtResource("arte")
+region = Rect2(27, 33, 57, 81)
+
+[sub_resource type="AtlasTexture" id="ines1"]
+atlas = ExtResource("arte")
+region = Rect2(147, 33, 57, 81)
+
+[sub_resource type="AtlasTexture" id="ines2"]
+atlas = ExtResource("arte")
+region = Rect2(267, 33, 57, 81)
+
+[sub_resource type="AtlasTexture" id="ines3"]
+atlas = ExtResource("arte")
+region = Rect2(387, 33, 57, 81)
 
 [sub_resource type="SpriteFrames" id="ines_frames"]
-animations = [{"frames":[{"duration":1.0,"texture":ExtResource("arte")}],"loop":true,"name":&"idle","speed":1.0}]
+animations = [{"frames":[{"duration":1.0,"texture":SubResource("ines0")}, {"duration":1.0,"texture":SubResource("ines1")}, {"duration":1.0,"texture":SubResource("ines2")}, {"duration":1.0,"texture":SubResource("ines3")}],"loop":true,"name":&"idle","speed":6.666667}]
 
 [sub_resource type="RectangleShape2D" id="rail"]
 size = Vector2(1050, 32)
@@ -79,7 +95,12 @@ text = "Flechas para caminar   ·   Espacio para hablar con Inés o accionar la 
 theme_override_colors/font_color = Color(0.97, 0.94, 0.84, 1)
 theme_override_font_sizes/font_size = 20
 
+[node name="AnimatedSprite2D" parent="Ines" index="0"]
+scale = Vector2(0.814815, 0.814815)
+
 [connection signal="body_entered" from="Embarcadero" to="." method="_on_arrival"]
 [connection signal="toggled" from="Mando" to="." method="_lever_changed"]
 
 [connection signal="interaction_ended" from="Ines/InteractArea" to="." method="_despedir_ines"]
+
+[editable path="Ines"]
