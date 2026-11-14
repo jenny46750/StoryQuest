@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" path="res://scenes/game_elements/props/lever/lever.tscn" id="lever"]
 [ext_resource type="PackedScene" path="res://scenes/game_elements/props/door/vertical_door.tscn" id="door"]
 
+[ext_resource type="PackedScene" path="res://scenes/game_elements/characters/npcs/talker/talker.tscn" id="talker"]
+[ext_resource type="Resource" path="res://scenes/quests/story_quests/forja_jenny/esclusa/ines.dialogue" id="voz"]
+[ext_resource type="Texture2D" path="res://scenes/quests/story_quests/forja_jenny/esclusa/ines.svg" id="arte"]
+
+[sub_resource type="SpriteFrames" id="ines_frames"]
+animations = [{"frames":[{"duration":1.0,"texture":ExtResource("arte")}],"loop":true,"name":&"idle","speed":1.0}]
+
 [sub_resource type="RectangleShape2D" id="rail"]
 size = Vector2(1050, 32)
 [sub_resource type="RectangleShape2D" id="end"]
@@ -37,6 +44,12 @@ scale = Vector2(1.6,3.2)
 [node name="Mando" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("lever")]
 position = Vector2(475,359)
 targets = [NodePath("../Compuerta")]
+[node name="Ines" parent="." instance=ExtResource("talker")]
+position = Vector2(368, 411)
+npc_name = "Inés"
+sprite_frames = SubResource("ines_frames")
+dialogue = ExtResource("voz")
+
 [node name="David" parent="." instance=ExtResource("player")]
 position = Vector2(260,385)
 player_name = "David"
@@ -62,10 +75,11 @@ theme_override_font_sizes/font_size = 30
 [node name="Ayuda" type="Label" parent="."]
 offset_left = 84.0
 offset_top = 562.0
-text = "Flechas para caminar   ·   Espacio para accionar la palanca"
+text = "Flechas para caminar   ·   Espacio para hablar con Inés o accionar la palanca"
 theme_override_colors/font_color = Color(0.97, 0.94, 0.84, 1)
 theme_override_font_sizes/font_size = 20
 
 [connection signal="body_entered" from="Embarcadero" to="." method="_on_arrival"]
 [connection signal="toggled" from="Mando" to="." method="_lever_changed"]
 
+[connection signal="interaction_ended" from="Ines/InteractArea" to="." method="_despedir_ines"]

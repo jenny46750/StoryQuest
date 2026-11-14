@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dstw0m3tv4d5j"
+path="res://.godot/imported/ines.dialogue-0bcaf55acff27b249feff11a256aac64.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/forja_jenny/esclusa/ines.dialogue"
+dest_files=["res://.godot/imported/ines.dialogue-0bcaf55acff27b249feff11a256aac64.tres"]
+
+[params]
+
+defaults=true
