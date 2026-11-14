@@ -97,6 +97,7 @@ func _draw() -> void:
 	var start := -1800.0
 	for gap: Vector2 in GAPS:
 		platform(start,gap.x)
+		jump_markers(gap.x)
 		start = gap.y
 	platform(start,FINISH+1400)
 	for marker: float in [BEACON, FINISH]:
@@ -125,3 +126,25 @@ func _draw() -> void:
 			line = "Has cruzado el vacío.   ·   ESPACIO   Entrar al Santuario de la Cima"
 	caption(74,605,title,27,PAPER)
 	caption(74,652,line,21,EDGE)
+
+func jump_markers(edge: float) -> void:
+	var launch := SCREEN_X + edge - distance - 40.0
+	if launch < -300 or launch > 1320:
+		return
+	var gold := Color("#ffd785")
+	var speed := 360.0 if edge > BEACON else 320.0
+	var airtime := 2.0 * 685.0 / 1800.0
+	# Las tres muescas están talladas en el canto de la losa de salida.
+	for i in 3:
+		var x := launch - 14.0 + i * 12.0
+		draw_polyline(PackedVector2Array([Vector2(x,BASE_Y+5),Vector2(x+6,BASE_Y+11),Vector2(x,BASE_Y+17)]),gold,3,true)
+	# Las chispas siguen el arco del salto hasta el reflector de la otra losa.
+	for i in range(1, 10):
+		var time := airtime * i / 10.0
+		var pos := Vector2(launch + speed*time, BASE_Y - (685.0*time - 900.0*time*time))
+		var radius := 4.0 if i % 2 else 2.5
+		draw_circle(pos,radius+4.0,Color(gold,0.12))
+		draw_circle(pos,radius,gold)
+	var landing := launch + speed*airtime
+	draw_line(Vector2(landing-14,BASE_Y),Vector2(landing+14,BASE_Y),gold,4)
+	draw_arc(Vector2(landing,BASE_Y),10,PI,TAU,14,gold,3,true)
