@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://d1njnittlo3ug"]
+
+[ext_resource type="Script" path="res://scenes/quests/story_quests/forja_jenny/esclusa/esclusa.gd" id="script"]
+[ext_resource type="PackedScene" path="res://scenes/game_elements/characters/player/player.tscn" id="player"]
+[ext_resource type="SpriteFrames" path="res://scenes/quests/story_quests/forja_jenny/episodios/arte/liceo.tres" id="david"]
+[ext_resource type="PackedScene" path="res://scenes/game_elements/props/lever/lever.tscn" id="lever"]
+[ext_resource type="PackedScene" path="res://scenes/game_elements/props/door/vertical_door.tscn" id="door"]
+
+[sub_resource type="RectangleShape2D" id="rail"]
+size = Vector2(1050, 32)
+[sub_resource type="RectangleShape2D" id="end"]
+size = Vector2(36, 145)
+[sub_resource type="CircleShape2D" id="goal"]
+radius = 27.0
+
+[node name="EsclusaDelEstuario" type="Node2D"]
+script = ExtResource("script")
+[node name="Camara" type="Camera2D" parent="."]
+position = Vector2(640,360)
+[node name="Barandas" type="StaticBody2D" parent="."]
+collision_layer = 16
+[node name="Norte" type="CollisionShape2D" parent="Barandas"]
+position = Vector2(640,324)
+shape = SubResource("rail")
+[node name="Sur" type="CollisionShape2D" parent="Barandas"]
+position = Vector2(640,436)
+shape = SubResource("rail")
+[node name="Oeste" type="CollisionShape2D" parent="Barandas"]
+position = Vector2(108,380)
+shape = SubResource("end")
+[node name="Este" type="CollisionShape2D" parent="Barandas"]
+position = Vector2(1172,380)
+shape = SubResource("end")
+[node name="Compuerta" parent="." instance=ExtResource("door")]
+position = Vector2(740,420)
+scale = Vector2(1.6,3.2)
+[node name="Mando" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("lever")]
+position = Vector2(475,359)
+targets = [NodePath("../Compuerta")]
+[node name="David" parent="." instance=ExtResource("player")]
+position = Vector2(260,385)
+player_name = "David"
+sprite_frames = ExtResource("david")
+[node name="Embarcadero" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+[node name="Destino" type="CollisionShape2D" parent="Embarcadero"]
+position = Vector2(1030,383)
+shape = SubResource("goal")
+[node name="Titulo" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 58.0
+text = "La esclusa del estuario"
+theme_override_colors/font_color = Color(0.97, 0.94, 0.84, 1)
+theme_override_font_sizes/font_size = 42
+[node name="Estado" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 496.0
+text = "Compuerta cerrada   ·   Busca el mando de latón."
+theme_override_colors/font_color = Color(0.97, 0.94, 0.84, 1)
+theme_override_font_sizes/font_size = 30
+[node name="Ayuda" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 562.0
+text = "Flechas para caminar   ·   Espacio para accionar la palanca"
+theme_override_colors/font_color = Color(0.97, 0.94, 0.84, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="body_entered" from="Embarcadero" to="." method="_on_arrival"]
+[connection signal="toggled" from="Mando" to="." method="_lever_changed"]
+

@@ -1,7 +1,7 @@
 extends Node2D
 
 const HERO := preload("arte/walk.png")
-const SANCTUARY := "res://scenes/quests/story_quests/forja_jenny/salida.tscn"
+const LOCK_SCENE := "res://scenes/quests/story_quests/forja_jenny/esclusa/esclusa.tscn"
 const STONE := Color("#25304d")
 const EDGE := Color("#75efdc")
 const VOID_GLOW := Color("#b887fc")
@@ -71,8 +71,8 @@ func _physics_process(dt: float) -> void:
 		Phase.ARRIVED:
 			if pressed:
 				set_physics_process(false)
-				GameState.set_scene(SANCTUARY)
-				get_tree().change_scene_to_file.call_deferred(SANCTUARY)
+				GameState.set_scene(LOCK_SCENE)
+				get_tree().change_scene_to_file.call_deferred(LOCK_SCENE)
 	queue_redraw()
 
 func caption(x: float, y: float, words: String, size_px: int, color: Color) -> void:
@@ -88,10 +88,10 @@ func platform(left: float, right: float) -> void:
 
 func _draw() -> void:
 	draw_rect(Rect2(-1400,-900,4100,2600),Color("#101124"))
-	for i in 76:
+	for i in 24:
 		var x := fposmod(i*137.0-distance*0.12,1310)
 		draw_circle(Vector2(x,100+(i*71)%420),1+i%2,Color("#9893bd"))
-	for i in 6:
+	for i in 3:
 		draw_arc(Vector2(765,304),58+i*15,elapsed*.15+i,elapsed*.15+i+4.9,50,Color("#473963"),2)
 	draw_circle(Vector2(765,304),52,Color("#100c20"))
 	var start := -1800.0
@@ -123,7 +123,7 @@ func _draw() -> void:
 			line = "ESPACIO   Reintentar desde el farol" if beacon_lit else "ESPACIO   Reintentar desde la entrada"
 		Phase.ARRIVED:
 			title = "Mara: «¡Veo tu luz sobre la rejilla!»"
-			line = "Has cruzado el vacío.   ·   ESPACIO   Entrar al Santuario de la Cima"
+			line = "Has cruzado el vacío.   ·   ESPACIO   Bajar a la esclusa del estuario"
 	caption(74,605,title,27,PAPER)
 	caption(74,652,line,21,EDGE)
 
@@ -135,6 +135,7 @@ func jump_markers(edge: float) -> void:
 	var speed := 360.0 if edge > BEACON else 320.0
 	var airtime := 2.0 * 685.0 / 1800.0
 	# Las tres muescas están talladas en el canto de la losa de salida.
+	draw_line(Vector2(launch-18,BASE_Y),Vector2(launch+18,BASE_Y),gold,6,true)
 	for i in 3:
 		var x := launch - 14.0 + i * 12.0
 		draw_polyline(PackedVector2Array([Vector2(x,BASE_Y+5),Vector2(x+6,BASE_Y+11),Vector2(x,BASE_Y+17)]),gold,3,true)
