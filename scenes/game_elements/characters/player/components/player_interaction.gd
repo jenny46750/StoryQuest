@@ -51,12 +51,12 @@ func _ready() -> void:
 	_on_character_sight_interact_area_changed()
 
 
-func _unhandled_input(_event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if _is_interacting():
 		return
 
 	var interact_area := character_sight.interact_area
-	if interact_area and Input.is_action_just_pressed(&"interact"):
+	if interact_area and not interact_area.disabled and event.is_action_pressed(&"interact"):
 		# While interacting, this class takes control over the player movement.
 		if character.has_method("take_control"):
 			character.take_control(self)

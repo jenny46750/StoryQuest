@@ -52,13 +52,10 @@ func _ready() -> void:
 		speeds = CharacterSpeeds.new()
 
 
-func _unhandled_input(_event: InputEvent) -> void:
+func _physics_process(delta: float) -> void:
 	var axis := Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down")
 	var speed := speeds.run_speed if Input.is_action_pressed(&"running") else speeds.walk_speed
 	input_vector = axis * speed
-
-
-func _physics_process(delta: float) -> void:
 	var step := (
 		speeds.stopping_step
 		if character.velocity.length_squared() > input_vector.length_squared()

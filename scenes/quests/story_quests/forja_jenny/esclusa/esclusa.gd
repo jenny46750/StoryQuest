@@ -45,7 +45,7 @@ func _process(_delta: float) -> void:
 		get_tree().change_scene_to_file.call_deferred(santuario)
 func _despedir_ines() -> void:
 	$Ayuda.text = "Flechas para caminar   ·   Espacio para accionar la palanca"
-	$Ines/InteractArea.set_deferred("monitorable", false)
+	$Ines/InteractArea.disabled = true
 	var despedida := create_tween()
 	despedida.tween_property($Ines, "modulate:a", 0.0, 0.6)
 	despedida.tween_callback($Ines.queue_free)
